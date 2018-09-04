@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Product Authentication</display-name>
+  <servlet>
+  	<servlet-name>Delegate</servlet-name>
+  	<display-name>Delegate</display-name>
+  	<description></description>
+  	<servlet-class>servlets.Delegate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Delegate</servlet-name>
+  	<url-pattern>/Delegate</url-pattern>
+  </servlet-mapping>
+</web-app>

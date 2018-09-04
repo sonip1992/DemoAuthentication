@@ -1,0 +1,46 @@
+<mvc:View controllerName="com.demo.qr_bc.DemoQR_BC.controller.Scan" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page title="Product Scanner">
+				<content>
+					<f:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" emptySpanL="3" emptySpanM="3" columnsL="1"
+						columnsM="1">
+						<Label text="Barcode value"/>
+						<Input id="scannedValue" placeholder="{= ${device>/barcodeScanEnabled} ? 'Use scan button to enter barcode' : 'Enter barcode manually' }"
+							editable="{= !${device>/barcodeScanEnabled} }"/>
+						<Button icon="sap-icon://bar-code" text="Scan" tooltip="Scan barcode" visible="{device>/barcodeScanEnabled}" press="onScanForBC">
+							<layoutData>
+								<l:GridData span="L2 M2"/>
+							</layoutData>
+						</Button>
+						
+						<Label text="QR value"/>
+						<Input id="scannedQRValue" placeholder="Press ScanQR button to enter QR" editable="{= !${device>/barcodeScanEnabled} }"/>
+						<Button icon="sap-icon://bar-code" text="ScanQR" tooltip="Scan qrcode" visible="{device>/barcodeScanEnabled}" press="onScanForQR">
+							<layoutData>
+								<l:GridData span="L2 M2"/>
+							</layoutData>
+						</Button>
+						
+						<Label text="Image" class="marginScanImg"/>
+						<Image id="imgCtrl" src="" densityAware="false" width="15rem" class="marginScanImgCtrl"/>
+						<Button icon="sap-icon://camera" id="image" text="Capture Image" tooltip="Scan Image" visible="{device>/barcodeScanEnabled}"
+							press="onScanForImage" class="marginScanImg">
+							<layoutData>
+								<l:GridData span="L2 M2"/>
+							</layoutData>
+						</Button>
+					</f:SimpleForm>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button type="Accept" text="Verify" press="onVerify"/>
+						<Button type="Reject" text="Reset" press="onReset"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
